@@ -19,8 +19,7 @@ export default class Login extends Component {
 		try {
 			let { data } = await axios.post("/authentication/signin", signInInfo);
 			localStorage.setItem('@User', JSON.stringify(data));
-			const isAuthenticated = data.isAuthenticated;
-			console.log(data.isAuthenticated)
+			const isAuthenticated = data.user.isAuthenticated;
 			if (isAuthenticated !== null && isAuthenticated !== undefined) {
 				localStorage.setItem('isAuthenticated', isAuthenticated);
 			}

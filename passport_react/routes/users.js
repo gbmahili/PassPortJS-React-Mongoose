@@ -22,8 +22,8 @@ router.post('/signup', (req, res, next) => {
 				})
 			}
 		});
+		user = {...user, isAuthenticated:true};
 		delete user.password;
-		user.isAuthenticated = true;
 		return res.status(200).json({
 			message: 'Sign In Successful',
 			user
@@ -53,8 +53,8 @@ router.post('/signin', function (req, res, next) {
 					message: 'Oopps...something happened'
 				})
 			}
+			user = {...user, isAuthenticated:true};
 			delete user.password;
-			user.isAuthenticated = true;
 			return res.status(200).json({
 				message: 'Sign In Successful',
 				user
